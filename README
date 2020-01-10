@@ -1,4 +1,3 @@
-
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 make menuconfig
@@ -35,3 +34,20 @@ NOTE:
 		./scripts/ltq_change_environment.sh
 	to "list", "switch" or "save" these configurations.
 
+#--------The_GF Install--------
+
+#install another gcc
+sudo add-apt-repository ppa:jonathonf/gcc
+sudo apt install gcc-9 g++-9
+sudo apt install gcc-5 g++-5
+
+#install alternatives priority
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 70 --slave /usr/bin/g++ g++ /usr/bin/g++-7
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 90 --slave /usr/bin/g++ g++ /usr/bin/g++-9
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 50 --slave /usr/bin/g++ g++ /usr/bin/g++-5
+sudo update-alternatives --config gcc
+
+#install packages (excessively)
+sudo apt install libncurses5-dev zlib1g zlib1g-dev gawk libssl-dev git-core gcc-5-multilib gcc-7-multilib gcc-9-multilib autoconf autogen automake autoconf-archive gnu-standards libtool gettext autopoint libgmp-dev libgmpxx4ldbl libmpfr-dev valac
+
+#########The_GF Install########
